@@ -90,6 +90,7 @@ class BaseplateCelery(Celery):
         self._baseplate = None
 
         super().__init__(*args, **kwargs)
+        self.Task = BaseplateTask
 
     def set_baseplate(self, baseplate: Baseplate):
         self._baseplate = baseplate
