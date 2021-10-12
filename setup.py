@@ -6,7 +6,7 @@ setup(
     description="reddit's python celery framework",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/reddit/baseplate-celery.py",
+    url="https://github.com/reddit/baseplate-celery",
     project_urls={
         "Documentation": "https://reddit-baseplate-celery.readthedocs.io/",
     },

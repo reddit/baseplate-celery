@@ -4,7 +4,6 @@ from baseplate import Baseplate
 from baseplate.lib import config
 from celery import Celery
 from celery import Task
-from psycogreen.gevent import patch_psycopg
 
 logger = logging.getLogger(__name__)
 
@@ -26,10 +25,7 @@ def parse_celery_configs(
     """
     assert prefix.endswith(".")
     parser = config.SpecParser(
-        {
-            "service_name": config.String,
-            "broker_url": config.String,
-        }
+        {"service_name": config.String, "broker_url": config.String}
     )
     options = parser.parse(prefix[:-1], app_config)
     return options
@@ -43,6 +39,7 @@ def emit_celery_metric(context, task_name, **tags):
     tags = {"task_name": short_task_name(task_name), **tags}
     context.metrics.counter("celery_task", tags=tags).increment()
     context.metrics.flush()
+
 
 class BaseplateTask(Task):
     # this lets us get away with injecting the context task arg
@@ -64,6 +61,7 @@ class BaseplateTask(Task):
 
         return ret
 
+
 class BaseplateCelery(Celery):
     def __init__(self, *args, **kwargs):
         self._app_config = None
@@ -79,9 +77,6 @@ class BaseplateCelery(Celery):
 
     def run_workers(self, app_config: config.RawConfig):
         """ Starts the worker, sets up context for future use in workers """
-        # we use gevent pool so lets patch psycopg2 so it doesnt block
-        patch_psycopg()
-
         cfg = config.parse_config(
             app_config,
             {
