@@ -92,10 +92,8 @@ Your application might already have a `make_baseplate` function doing all the Ba
 def make_baseplate(app_config):
     baseplate = Baseplate(app_config)
     baseplate.configure_observers()
-    
-    ...
-
     celery_app.set_baseplate(baseplate)
+    ...
 
 def make_celery_worker(app_config):
     make_baseplate(app_config)
