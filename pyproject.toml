@@ -1,3 +1,143 @@
-[tool.black]
+[project]
+name = "baseplate-celery"
+version = "0.0.0"  # Placeholder: release builds set the real version with `uv version` before `uv build`.
+description = "Celery integration for baseplate.py services."
+authors = [
+  { name = "reddit" },
+]
+readme = "README.md"
+license = "BSD-3-Clause"
+license-files = ["LICENSE"]
+requires-python = ">=3.11,<3.16"
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Programming Language :: Python :: 3.15",
+  "Topic :: Software Development :: Libraries",
+  "Typing :: Typed",
+]
+dependencies = [
+  "baseplate>=2.0.0a1,<3.0",
+  "celery>=5.1.2,<6",
+]
+
+[project.urls]
+"Source Code" = "https://github.com/reddit/baseplate-celery"
+
+[[tool.uv.index]]
+url = "https://artifactory.build.ue1.snooguts.net/artifactory/api/pypi/reddit-python-prod/simple"
+publish-url = "https://artifactory.build.ue1.snooguts.net/artifactory/api/pypi/reddit-python-prod"
+name = "reddit-prod"
+default = true
+
+[[tool.uv.index]]
+url = "https://artifactory.build.ue1.snooguts.net/artifactory/api/pypi/reddit-python-dev/simple"
+publish-url = "https://artifactory.build.ue1.snooguts.net/artifactory/api/pypi/reddit-python-dev"
+name = "reddit-dev"
+explicit = true
+
+[dependency-groups]
+dev = [
+  "pytest==9.2.0",
+  "pytest-cov==7.1.0",
+  "pytest-randomly==5.0.0",
+  "pytest-xdist[psutil]==3.8.0",
+  "ruff==0.17.4",
+  "ty==0.0.99",
+]
+
+[build-system]
+requires = ["uv_build>=0.13.5,<0.14"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "baseplate_celery"
+module-root = ""
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["*_tests.py"]
+
+[tool.coverage.run]
+source = ["baseplate_celery"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+
+[tool.coverage.lcov]
+output = "coverage.lcov"
+
+[tool.ty.rules]
+unresolved-import = "error"
+
+[tool.ruff]
 line-length = 100
-target-version = ['py36']
+target-version = "py311"
+extend-exclude = [".github", "build"]
+# Apply excludes to paths passed explicitly (editors, hooks).
+force-exclude = true
+
+[tool.ruff.lint]
+select = [
+  "A",
+  "B",
+  "C",
+  "C4",
+  "COM818",
+  "D",
+  "DTZ",
+  "E",
+  "F",
+  "FA102",
+  "FLY",
+  "G",
+  "I",
+  "INP",
+  "ICN",
+  "LOG007",
+  "PERF",
+  "PIE",
+  "PLC",
+  "PLE",
+  "PLR",
+  "PLW",
+  "PT",
+  "PTH",
+  "Q",
+  "RET",
+  "RUF",
+  "S",
+  "T20",
+  "TRY",
+  "W",
+  "YTT",
+  "SIM",
+  "PT012",
+]
+extend-ignore = [
+  # Wont fix
+  "A003",
+  "B904",
+  "PLR091",
+  "PLR2004",
+  # Annoying
+  "PT009",
+  "PT011",
+  "PT019",
+  # Contradictory
+  "D203", # D211 contradicts
+  "D213", # D212 contradicts
+  # Self-explanatory: magic methods, nested classes, __init__
+  "D105",
+  "D106",
+  "D107",
+]
+
+[tool.ruff.lint.extend-per-file-ignores]
+"tests/*" = ["B011", "D100", "D101", "D102", "D103", "S"]

@@ -1,0 +1,9 @@
+pre-commit:
+  parallel: true
+  commands:
+    lint:
+      glob: "{pyproject.toml,**/*.py}"
+      run: make lint
+    test:
+      glob: "{pyproject.toml,**/*.py}"
+      run: make test
