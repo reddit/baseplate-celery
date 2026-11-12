@@ -19,6 +19,31 @@ steps:
       - pip install uv -q
       - uv sync
       - make lint
+  # uv.lock pins the highest versions at lock time. Re-resolve in a copy of the workspace (so the
+  # shared uv.lock is untouched): once with the lowest allowed versions, to check the declared lower
+  # bounds, and once with the highest, to catch new releases.
+  - name: Lowest dependencies test
+    image: artifactory.build.ue1.snooguts.net/reddit-docker-prod/baseplate-py:2-py3.11-bookworm-dev
+    environment:
+      UV_PROJECT_ENVIRONMENT: /tmp/venv-lowest
+      UV_PYTHON: "3.11"
+      UV_RESOLUTION: lowest-direct
+    commands:
+      - pip install uv -q
+      - cp -a . /tmp/workspace
+      - cd /tmp/workspace
+      - make test
+  - name: Unpinned test
+    image: artifactory.build.ue1.snooguts.net/reddit-docker-prod/baseplate-py:2-py3.11-bookworm-dev
+    environment:
+      UV_PROJECT_ENVIRONMENT: /tmp/venv-unpinned
+      UV_PYTHON: "3.11"
+    commands:
+      - pip install uv -q
+      - cp -a . /tmp/workspace
+      - cd /tmp/workspace
+      - uv lock --upgrade
+      - make test
   - name: Test 3.11
     image: artifactory.build.ue1.snooguts.net/reddit-docker-prod/baseplate-py:2-py3.11-bookworm-dev
     environment:

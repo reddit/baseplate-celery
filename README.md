@@ -134,7 +134,9 @@ The following make targets are provided:
 ## Publishing
 
 Drone ([`infrared/legacydrone.yaml`](infrared/legacydrone.yaml)) lints and tests every pull request
-on Python 3.11-3.15, and publishes to Artifactory:
+on Python 3.11-3.15, plus at the lowest and highest dependency versions allowed by
+`pyproject.toml` (`UV_RESOLUTION=lowest-direct` and `uv lock --upgrade`), and publishes to
+Artifactory:
 
 * `v*` tags publish `<tag>` to `reddit-python-prod`.
 * Pushes to `main` publish `<latest-tag>+git.<sha>` snapshots to `reddit-python-dev`.

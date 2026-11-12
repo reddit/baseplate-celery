@@ -9,7 +9,7 @@
     "type": "move",
     "external_file": ".drone.yml",
     "generated_file": "configs/drone.yaml",
-    "content_sha256": "633e6f6196d39bd0334aa444bc9bc7338ee36b67f55d63b7d15dc0630b1a8052"
+    "content_sha256": "5f900be1dfa39dbb74d299e2f58cc41b0385f525789219ab449beb65c2ef4f1a"
   },
   {
     "type": "move",

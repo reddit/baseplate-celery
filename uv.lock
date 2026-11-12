@@ -72,8 +72,8 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "baseplate", specifier = ">=2.0.0a1,<3.0" },
-    { name = "celery", specifier = ">=5.1.2,<6" },
+    { name = "baseplate", specifier = ">=2.6.0,<3" },
+    { name = "celery", specifier = ">=5.3.1,<6" },
 ]
 
 [package.metadata.requires-dev]
