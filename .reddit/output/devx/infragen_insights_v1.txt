@@ -1,0 +1,20 @@
+FILE configs/Makefile *makefile.Makefile
+CODEC configs/Makefile *makefile.Codec
+
+FILE configs/code-lifecycle/config.yaml *codelifecycledata.Config
+CODEC configs/code-lifecycle/config.yaml *plainyaml.Codec[*github.snooguts.net/reddit-go/infrared-domain-github/github/codelifecycle/unstable/codelifecycledata.Config]
+
+FILE configs/github/.gitignore *githubdata.GitIgnore
+CODEC configs/github/.gitignore *githubdata.GitIgnoreCodec
+
+FILE configs/github/REDDITOWNERS *githubdata.CodeOwners
+CODEC configs/github/REDDITOWNERS *githubdata.CodeOwnersCodec
+
+FILE configs/github/repo_info.yaml *githubdata.Repo
+CODEC configs/github/repo_info.yaml *githubdata.RepoCodec
+
+FILE configs/renovate/renovate.json *renovatedata.Config
+CODEC configs/renovate/renovate.json *renovate.Codec
+
+FILE configs/snoofactor/codereview.yaml *codereviewdata.RepoConfig
+CODEC configs/snoofactor/codereview.yaml *codereviewdata.RepoConfigCodec

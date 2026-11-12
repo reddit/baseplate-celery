@@ -129,3 +129,4 @@ The following make targets are provided:
 * `test`: Run the test suite.
 * `test-cov`: Run the test suite with coverage.
 * `build`: Build the sdist and wheel into `dist/`.
+* `generate`: Regenerate the [Infrared v2](infrared/) configs (Makefile, `.gitignore`, `REDDITOWNERS`, Renovate, `.reddit/`). Requires Go and access to `github.snooguts.net`.

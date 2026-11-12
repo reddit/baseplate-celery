@@ -1,0 +1,12 @@
+# Generated files. GitHub collapses them in diffs and leaves them out of the language stats.
+
+# Infragen: `make generate`, from infrared/*.go.
+.github/renovate.json linguist-generated
+.reddit/** linguist-generated
+REDDITOWNERS linguist-generated
+Makefile linguist-generated
+.gitignore linguist-generated
+
+# Lockfiles.
+uv.lock linguist-generated
+infrared/go.sum linguist-generated

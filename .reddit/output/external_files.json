@@ -1,0 +1,26 @@
+[
+  {
+    "type": "move",
+    "external_file": "Makefile",
+    "generated_file": "configs/Makefile",
+    "sha256": "242c89e359a00f176f9b40712104785e4cf6aad6341dd404f9b350bab8369e57"
+  },
+  {
+    "type": "move",
+    "external_file": ".gitignore",
+    "generated_file": "configs/github/.gitignore",
+    "sha256": "f72b755557841dcfff8601cd1e5d613cb50c225be6786009f3a3b26f796bdc7a"
+  },
+  {
+    "type": "move",
+    "external_file": "REDDITOWNERS",
+    "generated_file": "configs/github/REDDITOWNERS",
+    "sha256": "8efff4625a8a4e0da7f73bf513fbc6228c8bf51dcafe11e6e26a42b9b163ff09"
+  },
+  {
+    "type": "move",
+    "external_file": ".github/renovate.json",
+    "generated_file": "configs/renovate/renovate.json",
+    "sha256": "3cd5310346d04bdf92f94f5ea77930338b0c072766c3ab6763e1542d66c0b995"
+  }
+]
