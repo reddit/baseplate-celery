@@ -3,7 +3,7 @@
     "type": "move",
     "external_file": "Makefile",
     "generated_file": "configs/Makefile",
-    "sha256": "34e53358288107c81ba0a0a388d5891033b0bed1ef449aa55a40e85f489aa54c"
+    "sha256": "d4a42ac70b2696ba1b8b66fed4da91b6477109aee837e1761a5c93e735a72901"
   },
   {
     "type": "move",
@@ -15,7 +15,7 @@
     "type": "move",
     "external_file": ".gitignore",
     "generated_file": "configs/github/.gitignore",
-    "sha256": "1e1d27c928a8579be16e386da2187192575df697181b57280ede8b8ce9b2621e"
+    "sha256": "ca016abbb31838edb09829bbf4842abef3621f979e67fcca125ee6a7ff469645"
   },
   {
     "type": "move",

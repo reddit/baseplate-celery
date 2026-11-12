@@ -48,6 +48,8 @@ func Generate(gen *infragen.Generator) {
 		// uv virtual environments; CI steps use .venv-<step>/.
 		".venv/",
 		".venv-*/",
+		// direnv state: input fingerprint that lets .envrc skip `make scaffold`.
+		".direnv/",
 		// Build output; CI steps use dist-py<version>/.
 		"build/",
 		"dist/",

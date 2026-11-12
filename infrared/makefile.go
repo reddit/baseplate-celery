@@ -20,7 +20,10 @@ func generateMakefile(gen *infragen.Generator) {
 
 	m.TargetWithHelp("scaffold", "Idempotently set up the venv and git hooks").AddRawCommands(
 		"uv sync --exact --group dev",
-		"lefthook install",
+		// Install hooks into this repo rather than a machine-wide core.hooksPath; .lefthook.yml
+		// still runs the machine-wide pre-commit hook.
+		"git config core.hooksPath .git/hooks",
+		"lefthook install --force",
 	)
 
 	m.TargetWithHelp("ruff", "Run ruff lint checks").AddRawCommands("$(UV_RUN) ruff check")

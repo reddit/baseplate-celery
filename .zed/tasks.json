@@ -1,0 +1,9 @@
+// https://zed.dev/docs/tasks
+[
+  { "label": "make lint", "command": "make lint", "cwd": "$ZED_WORKTREE_ROOT" },
+  { "label": "make fmt", "command": "make fmt", "cwd": "$ZED_WORKTREE_ROOT" },
+  { "label": "make test", "command": "make test", "cwd": "$ZED_WORKTREE_ROOT" },
+  { "label": "make test-cov", "command": "make test-cov", "cwd": "$ZED_WORKTREE_ROOT" },
+  { "label": "make scaffold", "command": "make scaffold", "cwd": "$ZED_WORKTREE_ROOT" },
+  { "label": "make generate", "command": "make generate", "cwd": "$ZED_WORKTREE_ROOT" }
+]

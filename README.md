@@ -116,11 +116,15 @@ See [the documentation] for more information.
 
 ## Development
 
-Requires [uv](https://docs.astral.sh/uv/) and [lefthook](https://lefthook.dev/).
+Requires [uv](https://docs.astral.sh/uv/) and [lefthook](https://lefthook.dev/). With
+[direnv](https://direnv.net/), `direnv allow` runs `make scaffold` and activates `.venv` whenever you
+enter the repo; otherwise run it yourself:
 
 ```console
 $ make scaffold
 ```
+
+[Zed](https://zed.dev/) project settings (`.zed/`) use ty and ruff as the Python language servers.
 
 The following make targets are provided:
 

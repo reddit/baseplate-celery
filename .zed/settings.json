@@ -1,0 +1,80 @@
+// Zed project settings. Indentation, line length, and whitespace mirror .editorconfig.
+// https://zed.dev/docs/configuring-zed
+{
+  // Hidden from the project panel, file finder, and search.
+  "file_scan_exclusions": [
+    ".reddit",
+    ".direnv",
+    "**/.venv",
+    "**/__pycache__",
+    "**/.ruff_cache",
+    "**/.pytest_cache",
+    "..."
+  ],
+
+  "languages": {
+    "Python": {
+      "tab_size": 4,
+      "hard_tabs": false,
+      "preferred_line_length": 100,
+      "show_wrap_guides": true,
+      "ensure_final_newline_on_save": true,
+      "remove_trailing_whitespace_on_save": true,
+      // ty for types, ruff for linting and formatting; disable the default Python servers.
+      "language_servers": ["ty", "ruff", "!basedpyright", "!pyright", "!pylsp"],
+      "formatter": { "language_server": { "name": "ruff" } },
+      "code_actions_on_format": {
+        "source.organizeImports.ruff": true
+      }
+    },
+    "TOML": {
+      "tab_size": 2,
+      "hard_tabs": false,
+      "preferred_line_length": 100,
+      "show_wrap_guides": true,
+      "ensure_final_newline_on_save": true,
+      "remove_trailing_whitespace_on_save": true
+    },
+    "Go": {
+      "tab_size": 4,
+      "hard_tabs": true,
+      "preferred_line_length": 100,
+      "show_wrap_guides": true,
+      "ensure_final_newline_on_save": true,
+      "remove_trailing_whitespace_on_save": true
+    },
+    "YAML": {
+      "tab_size": 2,
+      "hard_tabs": false,
+      "preferred_line_length": 100,
+      "show_wrap_guides": true,
+      "ensure_final_newline_on_save": true,
+      "remove_trailing_whitespace_on_save": true
+    },
+    "Markdown": {
+      "tab_size": 2,
+      "hard_tabs": false,
+      "preferred_line_length": 100,
+      "show_wrap_guides": true,
+      "ensure_final_newline_on_save": true,
+      // Trailing double-space is a Markdown line break.
+      "remove_trailing_whitespace_on_save": false
+    },
+    "JSON": {
+      "tab_size": 2,
+      "hard_tabs": false,
+      "preferred_line_length": 100,
+      "show_wrap_guides": true,
+      "ensure_final_newline_on_save": true,
+      "remove_trailing_whitespace_on_save": true
+    },
+    "JSONC": {
+      "tab_size": 2,
+      "hard_tabs": false,
+      "preferred_line_length": 100,
+      "show_wrap_guides": true,
+      "ensure_final_newline_on_save": true,
+      "remove_trailing_whitespace_on_save": true
+    }
+  }
+}

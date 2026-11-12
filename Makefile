@@ -63,7 +63,8 @@ ruff-fmt-fix:
 .PHONY: scaffold
 scaffold:
 	uv sync --exact --group dev
-	lefthook install
+	git config core.hooksPath .git/hooks
+	lefthook install --force
 
 .PHONY: test
 test:

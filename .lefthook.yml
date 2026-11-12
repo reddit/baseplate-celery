@@ -1,9 +1,19 @@
+# Installed into .git/hooks by `make scaffold` (and direnv).
 pre-commit:
-  parallel: true
+  piped: true
   commands:
-    lint:
-      glob: "{pyproject.toml,**/*.py}"
-      run: make lint
+    # Runs the machine-wide core.hooksPath pre-commit hook, which this repo overrides.
+    global-pre-commit:
+      priority: 1
+      run: >-
+        hooks="$(git config --global --includes --get core.hooksPath)";
+        if [ -n "$hooks" ] && [ -x "$hooks/pre-commit" ]; then "$hooks/pre-commit"; fi
+    fmt-and-lint:
+      priority: 2
+      glob: "{pyproject.toml,**/*.py,**/*.md}"
+      stage_fixed: true
+      run: make fmt lint
     test:
-      glob: "{pyproject.toml,**/*.py}"
+      priority: 3
+      glob: "{pyproject.toml,uv.lock,**/*.py}"
       run: make test

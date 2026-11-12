@@ -4,6 +4,7 @@
 .vscode/
 .venv/
 .venv-*/
+.direnv/
 build/
 dist/
 dist-py*/
