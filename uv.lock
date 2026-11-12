@@ -72,7 +72,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "baseplate", specifier = ">=2.6.0,<3" },
+    { name = "baseplate", extras = ["prometheus"], specifier = ">=2.6.0,<3" },
     { name = "celery", specifier = ">=5.3.1,<6" },
 ]
 

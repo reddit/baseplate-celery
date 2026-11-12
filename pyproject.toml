@@ -23,7 +23,7 @@ classifiers = [
 # Lower bounds are the first releases supporting our minimum Python (3.11); CI tests them with
 # UV_RESOLUTION=lowest-direct. Upper bounds are the next major version.
 dependencies = [
-  "baseplate>=2.6.0,<3",
+  "baseplate[prometheus]>=2.6.0,<3",
   "celery>=5.3.1,<6",
 ]
 
