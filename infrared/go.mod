@@ -4,6 +4,7 @@ go 1.26.0
 
 require (
 	github.snooguts.net/reddit-go/infrared-domain-aitools v0.0.116
+	github.snooguts.net/reddit-go/infrared-domain-droneci v1.2.4
 	github.snooguts.net/reddit-go/infrared-domain-github v1.0.19
 	github.snooguts.net/reddit-go/infrared-domain-make v1.0.4
 	github.snooguts.net/reddit-go/infrared-domain-python v0.6.3
@@ -22,7 +23,7 @@ require (
 	github.com/prometheus/procfs v0.20.1 // indirect
 	github.snooguts.net/reddit-go/baseplate/v2 v2.5.5 // indirect
 	github.snooguts.net/reddit-go/chantex v0.0.0-20251017164005-4f2a727c88a5 // indirect
-	github.snooguts.net/reddit-go/infrared-domain-droneci v1.1.14 // indirect
+	github.snooguts.net/reddit/docker-go v0.0.0-20261027044345-b5f516610036 // indirect
 	go.opentelemetry.io/otel v1.43.0 // indirect
 	go.opentelemetry.io/otel/trace v1.43.0 // indirect
 	go.yaml.in/yaml/v2 v2.4.4 // indirect

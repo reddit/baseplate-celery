@@ -38,5 +38,11 @@ func generateMakefile(gen *infragen.Generator) {
 	)
 
 	// uv builds the sdist, then the wheel from the sdist, which checks the sdist is complete.
-	m.TargetWithHelp("build", "Build the sdist and wheel into dist/").AddRawCommands("uv build")
+	// Stamps the version into pyproject.toml, builds, then reverts. Publish pipelines run these.
+	m.TargetWithHelp("build", "Build release distributions (VERSION=1.2.3, or a checked-out release tag)").AddRawCommands(
+		`@VERSION="$(VERSION)" bash scripts/build_dist.sh release`,
+	)
+	m.TargetWithHelp("build-dev", "Build snapshot distributions (<latest-tag>+git.<sha>)").AddRawCommands(
+		"@bash scripts/build_dist.sh dev",
+	)
 }

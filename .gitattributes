@@ -1,6 +1,7 @@
 # Generated files. GitHub collapses them in diffs and leaves them out of the language stats.
 
 # Infragen: `make generate`, from infrared/*.go.
+.drone.yml linguist-generated
 .github/renovate.json linguist-generated
 .reddit/** linguist-generated
 REDDITOWNERS linguist-generated

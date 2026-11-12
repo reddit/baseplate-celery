@@ -130,3 +130,11 @@ The following make targets are provided:
 * `test-cov`: Run the test suite with coverage.
 * `build`: Build the sdist and wheel into `dist/`.
 * `generate`: Regenerate the [Infrared v2](infrared/) configs (Makefile, `.gitignore`, `REDDITOWNERS`, Renovate, `.reddit/`). Requires Go and access to `github.snooguts.net`.
+
+## Publishing
+
+Drone ([`infrared/legacydrone.yaml`](infrared/legacydrone.yaml)) lints and tests every pull request
+on Python 3.11-3.15, and publishes to Artifactory:
+
+* `v*` tags publish `<tag>` to `reddit-python-prod`.
+* Pushes to `main` publish `<latest-tag>+git.<sha>` snapshots to `reddit-python-dev`.

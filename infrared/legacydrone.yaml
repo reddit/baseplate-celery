@@ -1,0 +1,129 @@
+kind: pipeline
+type: docker
+name: Test and Lint
+
+trigger:
+  event:
+    - pull_request
+
+steps:
+  # Parallel steps share the workspace volume; use distinct UV_PROJECT_ENVIRONMENT and build out-dirs
+  # so .venv/ and dist/ are not corrupted by concurrent uv sync / uv build.
+  - name: Lint
+    image: artifactory.build.ue1.snooguts.net/reddit-docker-prod/baseplate-py:2-py3.11-bookworm-dev
+    environment:
+      UV_PROJECT_ENVIRONMENT: .venv-lint
+      UV_PYTHON: "3.11"
+    commands:
+      - pip install uv -q
+      - uv sync
+      - make lint
+
+  - name: Test 3.11
+    image: artifactory.build.ue1.snooguts.net/reddit-docker-prod/baseplate-py:2-py3.11-bookworm-dev
+    environment:
+      UV_PROJECT_ENVIRONMENT: .venv-py311
+      UV_PYTHON: "3.11"
+    commands:
+      - pip install uv -q
+      - uv sync
+      - make test
+      - uv build -o dist-py311
+
+  - name: Test 3.12
+    image: artifactory.build.ue1.snooguts.net/reddit-docker-prod/baseplate-py:2-py3.12-trixie-dev
+    environment:
+      UV_PROJECT_ENVIRONMENT: .venv-py312
+      UV_PYTHON: "3.12"
+    commands:
+      - pip install uv -q
+      - uv sync
+      - make test
+      - uv build -o dist-py312
+
+  - name: Test 3.13
+    image: artifactory.build.ue1.snooguts.net/reddit-docker-prod/baseplate-py:2-py3.13-trixie-dev
+    environment:
+      UV_PROJECT_ENVIRONMENT: .venv-py313
+      UV_PYTHON: "3.13"
+    commands:
+      - pip install uv -q
+      - uv sync
+      - make test
+      - uv build -o dist-py313
+
+  - name: Test 3.14
+    image: artifactory.build.ue1.snooguts.net/reddit-docker-prod/baseplate-py:2-py3.14-trixie-dev
+    environment:
+      UV_PROJECT_ENVIRONMENT: .venv-py314
+      UV_PYTHON: "3.14"
+    commands:
+      - pip install uv -q
+      - uv sync
+      - make test
+      - uv build -o dist-py314
+
+  - name: Test 3.15
+    image: artifactory.build.ue1.snooguts.net/reddit-docker-prod/baseplate-py:2-py3.15-trixie-dev
+    environment:
+      UV_PROJECT_ENVIRONMENT: .venv-py315
+      UV_PYTHON: "3.15"
+    commands:
+      - pip install uv -q
+      - uv sync
+      - make test
+      - uv build -o dist-py315
+
+---
+kind: pipeline
+type: docker
+name: Publish
+
+depends_on:
+  - Test and Lint
+
+trigger:
+  event:
+    - tag
+
+steps:
+  - name: Publish
+    image: artifactory.build.ue1.snooguts.net/reddit-docker-prod/baseplate-py:2-py3.11-bookworm-dev
+    environment:
+      ARTIFACTORY_PASSWORD: 
+        from_secret: artifactory_password
+      UV_PYTHON: "3.11"
+    commands:
+      - pip install uv -q
+      - VERSION="${DRONE_TAG#v}" make build
+      - uv publish --index reddit-prod --username drone --password $ARTIFACTORY_PASSWORD
+
+---
+# Snapshot builds: every push to main -> dev index, version = <latest-tag>+git.<full-sha>.
+kind: pipeline
+type: docker
+name: Publish main snapshot
+
+trigger:
+  branch:
+    - main
+  event:
+    - push
+
+steps:
+  - name: Publish to dev index
+    image: artifactory.build.ue1.snooguts.net/reddit-docker-prod/baseplate-py:2-py3.11-bookworm-dev
+    environment:
+      ARTIFACTORY_PASSWORD: 
+        from_secret: artifactory_password
+      UV_PYTHON: "3.11"
+    commands:
+      - pip install uv -q
+      - make build-dev
+      - uv publish --index reddit-dev --username drone --password $ARTIFACTORY_PASSWORD
+
+---
+kind: secret
+name: artifactory_password
+get:
+  path: secret/artifactory/drone/password

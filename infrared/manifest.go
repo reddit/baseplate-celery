@@ -5,10 +5,13 @@ package infrared
 
 import (
 	"github.snooguts.net/reddit-go/infrared-domain-aitools/codereview"
+	"github.snooguts.net/reddit-go/infrared-domain-droneci/droneci"
+	"github.snooguts.net/reddit-go/infrared-domain-droneci/droneci/legacydrone"
 	"github.snooguts.net/reddit-go/infrared-domain-github/github"
 	"github.snooguts.net/reddit-go/infrared-domain-github/github/codelifecycle"
 	"github.snooguts.net/reddit-go/infrared-domain-python/python"
 	"github.snooguts.net/reddit-go/infrared-domain-renovate/renovate"
+	"github.snooguts.net/reddit-go/infrared-generator/domains/infrared/infraredci"
 	"github.snooguts.net/reddit-go/infrared-generator/infragen"
 )
 
@@ -24,8 +27,6 @@ func Generate(gen *infragen.Generator) {
 	codelifecycle.For(gen)
 
 	renovate.NewConfig(gen,
-		// Added with the Drone pipelines.
-		renovate.WithValidationPipeline(false),
 		// Published library: widen dependency ranges instead of raising consumers' minimums.
 		python.RenovateLibraryConfig(),
 		renovate.WithIgnorePaths(
@@ -44,11 +45,13 @@ func Generate(gen *infragen.Generator) {
 		".DS_Store",
 		".idea/",
 		".vscode/",
-		// uv virtual environments.
+		// uv virtual environments; CI steps use .venv-<step>/.
 		".venv/",
-		// Build output.
+		".venv-*/",
+		// Build output; CI steps use dist-py<version>/.
 		"build/",
 		"dist/",
+		"dist-py*/",
 		"*.egg-info/",
 		// Python and tool caches.
 		"__pycache__/",
@@ -63,4 +66,11 @@ func Generate(gen *infragen.Generator) {
 	)
 
 	generateMakefile(gen) // See makefile.go.
+
+	// Test, lint, and publish pipelines live in legacydrone.yaml.
+	legacydrone.Import(gen, "infrared/legacydrone.yaml")
+	droneci.For(gen).SetDefaultBranch("main")
+	droneci.For(gen).Add(
+		infraredci.NewCodegenCheckPipeline("Infrared v2"),
+	)
 }

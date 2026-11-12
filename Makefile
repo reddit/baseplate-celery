@@ -12,7 +12,8 @@ TEST_CMD := $(UV_RUN) pytest -n auto -ra
 .PHONY: help
 help:
 	@echo "Available commands:"
-	@echo '  make build - Build the sdist and wheel into dist/'
+	@echo '  make build - Build release distributions (VERSION=1.2.3, or a checked-out release tag)'
+	@echo '  make build-dev - Build snapshot distributions (<latest-tag>+git.<sha>)'
 	@echo '  make fmt - Apply formatting and lint fixes (edits files)'
 	@echo '  make generate - Regenerate Infrared v2 configs'
 	@echo '  make lint - Run all lint checks (no edits)'
@@ -27,7 +28,11 @@ help:
 
 .PHONY: build
 build:
-	uv build
+	@VERSION="$(VERSION)" bash scripts/build_dist.sh release
+
+.PHONY: build-dev
+build-dev:
+	@bash scripts/build_dist.sh dev
 
 .PHONY: fmt
 fmt: ruff-fmt-fix ruff-fix

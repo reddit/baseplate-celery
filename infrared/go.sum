@@ -194,8 +194,8 @@ github.snooguts.net/reddit-go/infrared-crds v0.35.107 h1:vHLbJ+27YrC71zvb6C90adP
 github.snooguts.net/reddit-go/infrared-crds v0.35.107/go.mod h1:4MeH8c7naBMTIt6bJG7+9Kdm0jzvuW1W4rf+sINdMiw=
 github.snooguts.net/reddit-go/infrared-domain-aitools v0.0.116 h1:ZfeflxXY+gAJvK6nLfR0uMCBXbpL8IZ+QzgumVEJzUw=
 github.snooguts.net/reddit-go/infrared-domain-aitools v0.0.116/go.mod h1:dNmlppHz1zfLO96K1iffozfSipjoEb3YZzZ6EVErvKw=
-github.snooguts.net/reddit-go/infrared-domain-droneci v1.1.14 h1:8JVk+8i7vjHyf6KbQl3xxOhtpretBFZwvLpD7zkr41k=
-github.snooguts.net/reddit-go/infrared-domain-droneci v1.1.14/go.mod h1:kt2TLgwzhRFFOj26FA8bpxp+PD5YFCf/a2dNIJ8u67A=
+github.snooguts.net/reddit-go/infrared-domain-droneci v1.2.4 h1:EiHd0JO7K3SPVsyhPXZi2aP9IV1YZMYJvtVgcbDzkyk=
+github.snooguts.net/reddit-go/infrared-domain-droneci v1.2.4/go.mod h1:hKilYMcQ5NxPYso8BvNYyqUKuKcMBDEEs7dFEeZvuUg=
 github.snooguts.net/reddit-go/infrared-domain-github v1.0.19 h1:BMhdx0VNWArn1q0xTQd4G+EHapRpNb55uBGoy+a8Lbc=
 github.snooguts.net/reddit-go/infrared-domain-github v1.0.19/go.mod h1:7w25/GBkwBy3ZXkKSZa5qHuRBAaLZeERLv9e5X84040=
 github.snooguts.net/reddit-go/infrared-domain-make v1.0.4 h1:G7E3h2vZIMT0OcckeCqLEsSSSJGID/4yIWf9Xgu/2Ao=
@@ -206,6 +206,10 @@ github.snooguts.net/reddit-go/infrared-domain-renovate v1.1.4 h1:bGBMZezJnu/Wy5q
 github.snooguts.net/reddit-go/infrared-domain-renovate v1.1.4/go.mod h1:q2H9wwPJuNaStNq44nt1XsXgWzBxa7AFF/SyKhaOLIY=
 github.snooguts.net/reddit-go/infrared-generator v0.21.19 h1:si3emeM2DM6Xej0AQpFML5xhKSOFWvYtkTwtNyo0l7o=
 github.snooguts.net/reddit-go/infrared-generator v0.21.19/go.mod h1:ahMtdF7Of13AjWpQJ1mkYYn17uajwkKmLkoxMezd+QY=
+github.snooguts.net/reddit-go/testingbp v0.0.1 h1:aVxMr2kKsZMFTeD9dyVojjojLJkMHogf3Mw+pAL+KuY=
+github.snooguts.net/reddit-go/testingbp v0.0.1/go.mod h1:pnXvsGAWA4tTWr3946geqAFGS5DlU06OdlMs4X2Qpt0=
+github.snooguts.net/reddit/docker-go v0.0.0-20261027044345-b5f516610036 h1:8e/fnu3rZvPJtojiSpzgzljbCJwKnxxuMP25kneRxOo=
+github.snooguts.net/reddit/docker-go v0.0.0-20261027044345-b5f516610036/go.mod h1:ya15ppOIFjtd2om3iyIC29+OidoySatwLd97JhOTcH8=
 github.snooguts.net/reddit/infra-storage-agents v0.1.64 h1:ikaNP5TewMx7kkuN3tFPxj3l8CGRbUmXEvbZxx+TAmo=
 github.snooguts.net/reddit/infra-storage-agents v0.1.64/go.mod h1:LVqXZXKEFcKknj34q0/Hqfm11AsZLVMpxb1SH7Fs6QA=
 go.opentelemetry.io/auto/sdk v1.2.1 h1:jXsnJ4Lmnqd11kwkBV2LgLoFMZKizbCi5fNZ/ipaZ64=

@@ -25,6 +25,7 @@
     "**/node_modules/**",
     "**/npm-offline-cache/**",
     "**/vendor/**",
+    ".drone.yml",
     ".github/renovate.json",
     ".gitignore",
     ".python-version",

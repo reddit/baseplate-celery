@@ -3,8 +3,10 @@
 .idea/
 .vscode/
 .venv/
+.venv-*/
 build/
 dist/
+dist-py*/
 *.egg-info/
 __pycache__/
 *.py[cod]

@@ -3,13 +3,19 @@
     "type": "move",
     "external_file": "Makefile",
     "generated_file": "configs/Makefile",
-    "sha256": "242c89e359a00f176f9b40712104785e4cf6aad6341dd404f9b350bab8369e57"
+    "sha256": "34e53358288107c81ba0a0a388d5891033b0bed1ef449aa55a40e85f489aa54c"
+  },
+  {
+    "type": "move",
+    "external_file": ".drone.yml",
+    "generated_file": "configs/drone.yaml",
+    "content_sha256": "633e6f6196d39bd0334aa444bc9bc7338ee36b67f55d63b7d15dc0630b1a8052"
   },
   {
     "type": "move",
     "external_file": ".gitignore",
     "generated_file": "configs/github/.gitignore",
-    "sha256": "f72b755557841dcfff8601cd1e5d613cb50c225be6786009f3a3b26f796bdc7a"
+    "sha256": "1e1d27c928a8579be16e386da2187192575df697181b57280ede8b8ce9b2621e"
   },
   {
     "type": "move",
@@ -21,6 +27,6 @@
     "type": "move",
     "external_file": ".github/renovate.json",
     "generated_file": "configs/renovate/renovate.json",
-    "sha256": "3cd5310346d04bdf92f94f5ea77930338b0c072766c3ab6763e1542d66c0b995"
+    "sha256": "9c935e3cf155c4c6cd151f342a3c2b9f86c381a4e75506c82d8efac51df455c2"
   }
 ]

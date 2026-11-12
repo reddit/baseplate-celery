@@ -4,6 +4,9 @@ CODEC configs/Makefile *makefile.Codec
 FILE configs/code-lifecycle/config.yaml *codelifecycledata.Config
 CODEC configs/code-lifecycle/config.yaml *plainyaml.Codec[*github.snooguts.net/reddit-go/infrared-domain-github/github/codelifecycle/unstable/codelifecycledata.Config]
 
+FILE configs/drone.yaml *droneci.Config
+CODEC configs/drone.yaml *droneci.Codec
+
 FILE configs/github/.gitignore *githubdata.GitIgnore
 CODEC configs/github/.gitignore *githubdata.GitIgnoreCodec
 
