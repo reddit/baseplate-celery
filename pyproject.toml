@@ -76,7 +76,7 @@ skip_covered = true
 output = "coverage.lcov"
 
 [tool.ty.rules]
-unresolved-import = "error"
+import-not-found = "error"
 
 [tool.ruff]
 line-length = 100
@@ -142,4 +142,4 @@ extend-ignore = [
 ]
 
 [tool.ruff.lint.extend-per-file-ignores]
-"tests/*" = ["B011", "D100", "D101", "D102", "D103", "S"]
+"tests/*" = ["B011", "D100", "D101", "D102", "D103", "D104", "S"]

@@ -57,6 +57,7 @@ Create a file called `tasks.py` in this module which contains all the functions 
 ```python
 from .celery import celery_app
 
+
 @celery_app.task
 def add(ctx, x, y):
     return x + y
@@ -88,12 +89,12 @@ baseplate-serve example.ini --app-name celery-worker
 Your application might already have a `make_baseplate` function doing all the Baseplate setup. The celery worker's entrypoint function should do the exact same Baseplate setup and then start the workers. For example:
 
 ```py
-
 def make_baseplate(app_config):
     baseplate = Baseplate(app_config)
     baseplate.configure_observers()
     celery_app.set_baseplate(baseplate)
     ...
+
 
 def make_celery_worker(app_config):
     make_baseplate(app_config)
