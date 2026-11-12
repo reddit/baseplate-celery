@@ -1,5 +1,9 @@
 # baseplate-celery
 
+[![Reticle Badge](https://reticle.snooguts.net/api/reticle_badge?repo_name=reddit/baseplate-celery)](https://reticle.snooguts.net/repos/reddit/baseplate-celery)
+[![AI Readiness](https://reticle.snooguts.net/api/category_badge?repo_name=reddit%2Fbaseplate-celery&category_name=AI%20Readiness)](https://reticle.snooguts.net/repos/reddit/baseplate-celery)
+[![Build Status](https://drone.build.ue1.snooguts.net/api/badges/reddit/baseplate-celery/status.svg?ref=refs/heads/main)](https://drone.build.ue1.snooguts.net/reddit/baseplate-celery)
+
 Baseplate Celery allows us to integrate Celery in Baseplate.py services. [Celery](https://docs.celeryproject.org/en/stable/getting-started/introduction.html) is an open source asynchronous task queue. Integrating your Baseplate.py service with Celery can enable you to offload some tasks to run in the background, while leveraging some of Baseplate.py's configurations and telemetry.
 
 Baseplate Celery will allow you to:
